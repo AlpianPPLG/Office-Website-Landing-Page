@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-...your-integrity-here..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Landing Page</title>
+    <style>
+      /* Tambahkan style untuk transisi menu */
+      .menu-hidden {
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .menu-visible {
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <navbar>
+      <div class="w-full py-3 border-b sticky top-0 bg-white z-50">
+        <div class="flex justify-between items-center px-6 md:px-20">
+          <div>
+            <h1 class="text-slate-600 text-2xl">MYOffice</h1>
+          </div>
+          <div class="hidden md:flex xl:gap-10 md:gap-8 gap-2 text-slate-600">
+            <a href="#home" class="hover:text-blue-600">Home</a>
+            <a href="#work" class="hover:text-blue-600">Work</a>
+            <a href="#about" class="hover:text-blue-600">About</a>
+            <a href="#services" class="hover:text-blue-600">Services</a>
+            <a href="#testimoni" class="hover:text-blue-600">Testimonial</a>
+          </div>
+          <div class="hidden md:flex">
+            <button
+              class="flex items-center py-2 px-6 bg-blue-600 text-white rounded-3xl font-semibold"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              Contact
+            </button>
+          </div>
+          <!-- Button Hamburger -->
+          <button id="menu-button" class="md:hidden p-2 text-slate-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            </svg>
+          </button>
+        </div>
+        <!-- Menu Dropdown -->
+        <div
+          id="menu"
+          class="absolute top-0 right-0 w-3/4 md:w-1/2 bg-white border-b border-slate-200 md:hidden menu-hidden"
+        >
+          <div class="flex justify-end p-4">
+            <button id="close-button" class="text-slate-600">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="flex flex-col items-center py-4">
+            <a href="#home" class="py-2 text-slate-600 hover:text-blue-600"
+              >Home</a
+            >
+            <a href="#work" class="py-2 text-slate-600 hover:text-blue-600"
+              >Work</a
+            >
+            <a href="#about" class="py-2 text-slate-600 hover:text-blue-600"
+              >About</a
+            >
+            <a href="#services" class="py-2 text-slate-600 hover:text-blue-600"
+              >Services</a
+            >
+            <a href="#testimoni" class="py-2 text-slate-600 hover:text-blue-600"
+              >Testimonial</a
+            >
+            <button
+              class="mt-4 flex items-center py-2 px-6 bg-blue-600 text-white rounded-3xl font-semibold"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5 mr-2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              Contact
+            </button>
+          </div>
+        </div>
+      </div>
+    </navbar>
+
+    <section
+      class="flex flex-col md:flex-row items-center justify-between min-h-screen px-6 md:px-20 bg-gray-100"
+    >
+      <!-- Gambar dengan urutan pertama di tampilan mobile -->
+      <div
+        id="home"
+        class="md:w-1/2 flex justify-center order-first md:order-last"
+      >
+        <img
+          src="./images/01.png"
+          alt="Hero Image"
+          class="w-3/4 max-w-xs h-auto object-cover rounded-lg"
+        />
+      </div>
+      <!-- Teks dengan urutan terakhir di tampilan mobile -->
+      <div
+        class="md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left order-last md:order-first"
+      >
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+          Welcome to <span class="text-blue-600"> MYOffice </span>
+        </h1>
+        <p class="text-gray-600 mb-6">
+          Discover our range of services and find out how we can help you
+          achieve your goals. Our team is dedicated to providing top-notch
+          solutions tailored to your needs.
+        </p>
+        <button
+          class="py-2 px-6 sm:py-3 sm:px-8 border-2 border-blue-600 text-blue-600 rounded-full font-semibold hover:bg-blue-600 hover:text-white transition-colors duration-300 text-base sm:text-lg"
+        >
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <!-- Section Work -->
+    <section class="py-16 bg-white">
+      <div id="work" class="container mx-auto px-6 md:px-20">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8"
+        >
+          Our Work
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Web Development
+            </h3>
+            <p class="text-gray-600">
+              We create responsive and engaging websites tailored to your
+              business needs.
+            </p>
+          </div>
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-mobile-alt text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Mobile Apps
+            </h3>
+            <p class="text-gray-600">
+              Developing mobile applications to enhance user experience on the
+              go.
+            </p>
+          </div>
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-paint-brush text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Design</h3>
+            <p class="text-gray-600">
+              Crafting visually appealing designs that captivate and convert.
+            </p>
+          </div>
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-chart-line text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              SEO Optimization
+            </h3>
+            <p class="text-gray-600">
+              Improving your website’s visibility and ranking on search engines.
+            </p>
+          </div>
+          <!-- Icon 1 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-cogs text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Automation</h3>
+            <p class="text-gray-600">
+              Streamlining your processes with automation to increase
+              efficiency.
+            </p>
+          </div>
+          <!-- Icon 2 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-gray-50 p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-cloud text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Cloud Services
+            </h3>
+            <p class="text-gray-600">
+              Providing cloud solutions to manage and store your data securely.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="about" class="sm:flex items-center max-w-screen-xl">
+      <div class="sm:w-1/2 p-10">
+        <div class="image object-center text-center">
+          <img src="./images/WbQnbas.png" />
+        </div>
+      </div>
+      <div class="sm:w-1/2 p-5">
+        <div class="text">
+          <span class="text-gray-500 border-b-2 border-indigo-600 uppercase"
+            >About us</span
+          >
+          <h2 class="my-4 font-bold text-3xl sm:text-4xl">
+            About <span class="text-indigo-600">Our Company</span>
+          </h2>
+          <p class="text-gray-700">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid,
+            commodi doloremque, fugiat illum magni minus nisi nulla numquam
+            obcaecati placeat quia, repellat tempore voluptatum.
+          </p>
+          <a
+            href=""
+            class="flex items-center text-indigo-700 border border-indigo-600 py-2 px-6 gap-2 rounded inline-flex items-center mt-6"
+          >
+            <span> Learn More </span>
+            <svg
+              class="w-4"
+              fill="none"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              class="w-6 h-6 ml-2"
+            >
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <section id="services" class="py-16 bg-gray-100">
+      <div class="container mx-auto px-6 md:px-20">
+        <!-- Judul -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8"
+        >
+          Our Services
+        </h2>
+
+        <!-- Deskripsi Singkat -->
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Layanan 1 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-laptop-code text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Web Development
+            </h3>
+            <p class="text-gray-600">
+              Building modern and responsive websites tailored to your needs.
+            </p>
+          </div>
+
+          <!-- Layanan 2 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-mobile-alt text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Mobile Apps
+            </h3>
+            <p class="text-gray-600">
+              Creating engaging mobile applications for iOS and Android
+              platforms.
+            </p>
+          </div>
+
+          <!-- Layanan 3 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-paint-brush text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Design</h3>
+            <p class="text-gray-600">
+              Crafting visually appealing designs that captivate and convert.
+            </p>
+          </div>
+
+          <!-- Layanan 4 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-search text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              SEO Optimization
+            </h3>
+            <p class="text-gray-600">
+              Enhancing your website’s visibility and ranking on search engines.
+            </p>
+          </div>
+
+          <!-- Layanan 5 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-rocket text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Marketing</h3>
+            <p class="text-gray-600">
+              Developing strategies to boost your brand and reach a wider
+              audience.
+            </p>
+          </div>
+
+          <!-- Layanan 6 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-cloud text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Cloud Services
+            </h3>
+            <p class="text-gray-600">
+              Offering scalable cloud solutions to enhance your business
+              operations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto px-6 md:px-20">
+        <!-- Judul -->
+        <h2
+          class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-8"
+          id="testimoni"
+        >
+          What Our Clients Say
+        </h2>
+
+        <!-- Testimonial -->
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Testimonial 1 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-user-circle text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Jane Doe</h3>
+            <p class="text-gray-600 mb-4">
+              "The team at SMKHEBAT delivered an outstanding product that
+              exceeded our expectations. Their attention to detail and
+              commitment to quality are unmatched."
+            </p>
+            <p class="text-gray-500">CEO, CompanyName</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-user-circle text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">John Smith</h3>
+            <p class="text-gray-600 mb-4">
+              "Working with SMKHEBAT has been a pleasure. Their innovative
+              approach and excellent communication made the project seamless and
+              successful."
+            </p>
+            <p class="text-gray-500">Marketing Manager, AnotherCompany</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div
+            class="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center text-center bg-white p-6 rounded-lg shadow-lg"
+          >
+            <i class="fas fa-user-circle text-4xl text-blue-600 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Emily Johnson
+            </h3>
+            <p class="text-gray-600 mb-4">
+              "SMKHEBAT provided exceptional service from start to finish. Their
+              team's dedication and expertise ensured our project was a huge
+              success."
+            </p>
+            <p class="text-gray-500">Product Owner, TechCorp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const menuButton = document.getElementById("menu-button");
+      const closeButton = document.getElementById("close-button");
+      const menu = document.getElementById("menu");
+
+      menuButton.addEventListener("click", () => {
+        menu.classList.remove("menu-hidden");
+        menu.classList.add("menu-visible");
+      });
+
+      closeButton.addEventListener("click", () => {
+        menu.classList.remove("menu-visible");
+        menu.classList.add("menu-hidden");
+      });
+    </script>
+  </body>
+</html>
